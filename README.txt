@@ -1,2 +1,0 @@
-Semih KARALAR
-github repo
