@@ -16,8 +16,6 @@ class Product extends CI_Controller
 
     public function index()
     {
-
-
         $viewData = new stdClass();
 
         /** Tablodan verilerin getirilmesi.. */
@@ -83,6 +81,27 @@ class Product extends CI_Controller
 
             $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
         }
+    }
+
+    public function update($id)
+    {
+
+        $viewData = new stdClass();
+
+        /** Tablodan verilerin getirilmesi */
+
+        $item = $this->product_model->get(
+            array(
+                "id" => $id
+            )
+        );
+
+
+        $viewData->viewFolder = $this->viewFolder;
+        $viewData->subViewFolder = "update";
+        $viewData->item = $item;
+
+        $this->load->view("{$viewData->viewFolder}/{$viewData->subViewFolder}/index", $viewData);
     }
 
 

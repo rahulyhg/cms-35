@@ -8,12 +8,17 @@ class Product_model extends CI_Model{
         parent::__construct();
     }
 
+    public function get($where = []){
+        return $this->db->where($where)->get($this->tableName)->row();
+    }
+
     /* Veritabanýnda bütün kayýtlarý getirecek metot. */
-    public function getAll(){
-        return $this->db->get($this->tableName)->result();
+    public function getAll($where = []){
+        return $this->db->where($where)->get($this->tableName)->result();
     }
 
     public function add($data = []){
         return $this->db->insert($this->tableName, $data);
     }
+
 }
